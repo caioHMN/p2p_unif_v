@@ -1,0 +1,191 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #898484; /* Cinza muito claro */
+    color: #333; /* Texto principal em cinza escuro */
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #444; /* Títulos em um cinza um pouco mais escuro */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+/* Campo de Texto Unificado (textarea) */
+textarea {
+    width: calc(100% - 22px); /* Ajuste para padding e borda */
+    height: 100px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 5px;
+    background-color: #fff; /* Fundo branco */
+    resize: vertical; /* Permite redimensionar verticalmente */
+    font-size: 0.95em;
+    color: #444;
+}
+
+textarea::placeholder {
+    color: #aaa; /* Placeholder em cinza claro */
+}
+
+/* Grupo de Botões */
+.button-group {
+    display: flex; /* Para alinhar os botões em linha */
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Estilo Base dos Botões */
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Botões de Ação Principal (Gerar Oferta, Gerar Resposta, Conectar) */
+#generateOfferBtn,
+#generateAnswerBtn,
+#connectBtn {
+    background-color: #6699ff; /* Azul suave para destaque */
+    color: white;
+}
+
+#generateOfferBtn:hover,
+#generateAnswerBtn:hover,
+#connectBtn:hover {
+    background-color: #4d7edb; /* Azul mais escuro no hover */
+}
+
+/* Botões Secundários (Copiar, Salvar, Carregar) */
+#copySdpBtn,
+#saveSdpBtn,
+#loadSdpBtn {
+    background-color: #e0e0e0; /* Cinza médio */
+    color: #333;
+}
+
+#copySdpBtn:hover,
+#saveSdpBtn:hover,
+#loadSdpBtn:hover {
+    background-color: #ccc; /* Cinza mais claro no hover */
+}
+
+/* Input de arquivo (oculto) */
+input[type="file"] {
+    display: none; /* Mantemos oculto, ativado pelo botão */
+}
+
+/* Área de Chat */
+#chatMessages {
+    border: 1px solid #ddd;
+    height: 200px;
+    overflow-y: auto; /* Alterado de scroll para auto */
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fcfcfc; /* Fundo do chat ligeiramente mais claro */
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+#chatMessages p {
+    margin: 5px 0;
+    word-wrap: break-word; /* Garante que mensagens longas quebrem a linha */
+}
+
+#chatInput {
+    width: calc(100% - 80px); /* Ajuste para o botão Enviar e padding */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #444;
+}
+
+#sendChat {
+    padding: 8px 15px;
+    background-color: #88cc88; /* Verde suave para o botão de envio */
+    color: white;
+    margin-left: 5px;
+    box-shadow: none; /* Sem sombra para este botão */
+}
+
+#sendChat:hover {
+    background-color: #77bb77;
+}
+
+/* Botão de Reconexão */
+#reconnectBtn {
+    background-color: #ff9966; /* Laranja suave */
+    color: rgb(246, 242, 242);
+    margin-top: 20px;
+}
+
+#reconnectBtn:hover {
+    background-color: #e07b4d;
+}
+
+/* Status da Conexão */
+#status {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Instruções */
+.button-group + p { /* Seleciona o parágrafo que vem logo depois de .button-group */
+    font-size: 0.85em; /* Um pouco menor para as instruções */
+    color: #666; /* Cinza médio */
+    margin-top: 15px;
+    border: 1px solid #fffefe;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #fbfbfb; /* Fundo quase branco */
+    line-height: 1.5;
+}
+
+.button-group + p strong {
+    color: #444; /* Destaque para os termos importantes nas instruções */
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .button-group {
+        flex-direction: column; /* Botões empilham em telas pequenas */
+    }
+    button {
+        width: 100%; /* Botões ocupam largura total */
+        margin-right: 0;
+    }
+    #chatInput {
+        width: calc(100% - 50px); /* Ajuste para telas menores */
+    }
+    #sendChat {
+        width: 45px; /* Ajuste para telas menores */
+    }
+}
