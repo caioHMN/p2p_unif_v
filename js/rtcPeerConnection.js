@@ -2,7 +2,11 @@
 
 let _peerConnection = null; // Instância privada
 
-const iceServers = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+const iceServers = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' },{
+            urls: "turn:relay1.expressturn.com:3480", // Esquema 'turn:' adicionado aqui
+            username: "000000002069331928", // Credencial do ExpressTURN
+            credential: "rYRTk7O5zrJNVgSk8ZjgFOtidqg=" // Credencial do ExpressTURN
+        }] };
 
 export function createPeerConnection(onIceCandidateCallback, onConnectionStateChangeCallback, onDataChannelCallback) {
     _peerConnection = new RTCPeerConnection(iceServers);
