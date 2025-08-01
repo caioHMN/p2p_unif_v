@@ -3,10 +3,28 @@
 let _peerConnection = null; // Instância privada
 
 const iceServers = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' },{
-            urls: "turn:relay1.expressturn.com:3480", // Esquema 'turn:' adicionado aqui
-            username: "000000002069331928", // Credencial do ExpressTURN
-            credential: "rYRTk7O5zrJNVgSk8ZjgFOtidqg=" // Credencial do ExpressTURN
-        }] };
+        urls: "stun:stun.relay.metered.ca:80",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80",
+        username: "7aef33eb21d041411f8aa9d0",
+        credential: "MKVFa0zuS3dLjLF5",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80?transport=tcp",
+        username: "7aef33eb21d041411f8aa9d0",
+        credential: "MKVFa0zuS3dLjLF5",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:443",
+        username: "7aef33eb21d041411f8aa9d0",
+        credential: "MKVFa0zuS3dLjLF5",
+      },
+      {
+        urls: "turns:global.relay.metered.ca:443?transport=tcp",
+        username: "7aef33eb21d041411f8aa9d0",
+        credential: "MKVFa0zuS3dLjLF5",
+      },] };
 
 export function createPeerConnection(onIceCandidateCallback, onConnectionStateChangeCallback, onDataChannelCallback) {
     _peerConnection = new RTCPeerConnection(iceServers);
